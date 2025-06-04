@@ -1,0 +1,47 @@
+name: Import Issues from JSON
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'issues.json'
+
+jobs:
+  import_issues:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install @octokit/rest
+
+      - name: Import Issues from issues.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OWNER: ${{ github.repository_owner }}
+          REPO: ${{ github.event.repository.name }}
+        run: |
+          node <<'EOF'
+          const { Octokit } = require("@octokit/rest");
+          const fs = require("fs");
+          const issues = JSON.parse(fs.readFileSync("issues.json", "utf8"));
+          const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
+          (async () => {
+            for (const issue of issues) {
+              await octokit.issues.create({
+                owner: process.env.OWNER,
+                repo: process.env.REPO,
+                title: issue.title,
+                body: issue.body,
+                labels: issue.labels,
+              });
+              console.log(`Created: ${issue.title}`);
+            }
+          })().catch(console.error);
+          EOF
