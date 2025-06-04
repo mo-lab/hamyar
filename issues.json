@@ -1,0 +1,52 @@
+[
+  {
+    "title": "Week 1: Project Setup & Foundations",
+    "labels": ["roadmap", "week-1", "setup"],
+    "body": "## Objectives\n- Establish the foundation for your multi-service project.\n- Ensure all tools and repos are set up for ADHD-friendly visual tracking.\n\n## Tasks\n- [ ] Decide on project structure (monorepo or split repos for API/clients).\n- [ ] Create a new GitHub repository (or repositories).\n- [ ] Set up `.gitignore` for Go, Flutter, and any editors.\n- [ ] Initialize Go API project with NATS and SQLite dependencies.\n- [ ] Scaffold Flutter apps for:\n  - Seller dashboard (web, mobile, desktop)\n  - Supplier dashboard (web, mobile, desktop)\n- [ ] Set up a shared directory or repo for protobuf definitions.\n- [ ] Create a GitHub Project board (To Do | In Progress | Done).\n- [ ] Add this roadmap as ROADMAP.md to your repo.\n\n## Acceptance Criteria\n- All repos are created and pushed to GitHub.\n- Basic project structure is committed.\n- Project board and roadmap are visible in the repo.\n\n## Resources\n- [GitHub Projects Quickstart](https://docs.github.com/en/issues/organizing-your-work-with-projects/quickstart)\n- [Flutter Getting Started](https://docs.flutter.dev/get-started)\n- [Go Modules](https://blog.golang.org/using-go-modules)"
+  },
+  {
+    "title": "Week 2: Core Communication Layer",
+    "labels": ["roadmap", "week-2", "grpc"],
+    "body": "## Objectives\n- Define and implement core communication using gRPC and protobuf.\n- Establish the basic contract between API and clients.\n\n## Tasks\n- [ ] Define protobuf schemas for:\n  - User\n  - Product\n  - Inventory\n  - Payment\n  - Customer\n- [ ] Generate Go and Dart code from proto files.\n- [ ] Implement gRPC server in Go API.\n- [ ] Implement basic gRPC client in Flutter apps.\n- [ ] Set up version control for proto files and ensure all services are using the correct version.\n- [ ] Write a test to confirm API <-> client basic communication.\n\n## Acceptance Criteria\n- Protobuf files are versioned and available to all services.\n- API and at least one client can exchange a basic message over gRPC.\n\n## Resources\n- [gRPC Quickstart: Go](https://grpc.io/docs/languages/go/quickstart/)\n- [gRPC Quickstart: Dart](https://grpc.io/docs/languages/dart/quickstart/)\n- [Protobuf Best Practices](https://developers.google.com/protocol-buffers/docs/best-practices)"
+  },
+  {
+    "title": "Week 3: Authentication & User Management",
+    "labels": ["roadmap", "week-3", "auth"],
+    "body": "## Objectives\n- Implement authentication and user role management in Go API and Flutter clients.\n\n## Tasks\n- [ ] Design and implement sign up, login, and user roles (seller, supplier, admin) in Go API.\n- [ ] Add endpoints for user management in API (register, login, get user info).\n- [ ] Add basic authentication UI in Flutter apps.\n- [ ] Store user session securely in Flutter (local SQL or secure storage).\n- [ ] Test login and logout flow.\n- [ ] Document auth flow in README.\n\n## Acceptance Criteria\n- Users can register, log in, and see their role in all clients.\n- Sessions persist and expire as expected.\n\n## Resources\n- [JWT Authentication in Go](https://dev.to/hackmamba/jwt-authentication-in-golang-22o6)\n- [Flutter Secure Storage](https://pub.dev/packages/flutter_secure_storage)"
+  },
+  {
+    "title": "Week 4: Product & Inventory Management",
+    "labels": ["roadmap", "week-4", "product"],
+    "body": "## Objectives\n- Implement product and inventory CRUD in both Go API and Flutter clients.\n\n## Tasks\n- [ ] Add CRUD endpoints for products and inventory in Go API.\n- [ ] Build UI screens for product and inventory list, creation, and editing in Flutter clients (seller and supplier).\n- [ ] Ensure local SQL storage syncs with server on connect.\n- [ ] Add basic validation for product data.\n- [ ] Test product add/edit flow end-to-end.\n\n## Acceptance Criteria\n- Products and inventory can be managed from both dashboards.\n- Changes sync and persist, including offline edits.\n\n## Resources\n- [Flutter Data Persistence](https://docs.flutter.dev/data-and-backend/persistence)\n- [GORM for Go ORM](https://gorm.io/index.html)"
+  },
+  {
+    "title": "Week 5: Customer & POS Module",
+    "labels": ["roadmap", "week-5", "pos"],
+    "body": "## Objectives\n- Implement customer management and POS features for sellers.\n\n## Tasks\n- [ ] Add customer management endpoints to Go API.\n- [ ] Implement POS endpoints and logic in Go API.\n- [ ] Build customer and POS UI for seller dashboard in Flutter.\n- [ ] Ensure offline-first POS functionality.\n- [ ] Test customer add/sale flow.\n\n## Acceptance Criteria\n- Sellers can manage customers and record sales.\n- POS works offline and syncs when online.\n\n## Resources\n- [Flutter POS Example](https://github.com/rodydavis/flutter-pos)\n- [Offline-first in Flutter](https://flutter.dev/docs/cookbook/persistence/sqlite)"
+  },
+  {
+    "title": "Week 6: Supplier Dashboard & Supply Chain Connections",
+    "labels": ["roadmap", "week-6", "supplier"],
+    "body": "## Objectives\n- Implement supplier-specific features and supply chain networking.\n\n## Tasks\n- [ ] Add endpoints for supplier product offers and networking in Go API.\n- [ ] Build UI for supplier dashboard: product offering, comparison, supply chain connection.\n- [ ] Implement logic for connecting sellers to suppliers.\n\n## Acceptance Criteria\n- Suppliers can offer products and connect to seller clients.\n- Sellers can compare and select suppliers.\n\n## Resources\n- [Supply Chain Management Concepts](https://www.investopedia.com/terms/s/supplychain.asp)"
+  },
+  {
+    "title": "Week 7: Payment Management (Phase 1)",
+    "labels": ["roadmap", "week-7", "payments"],
+    "body": "## Objectives\n- Add payment management functionality.\n\n## Tasks\n- [ ] Create payment entity and endpoints in Go API.\n- [ ] Build payment UI in Flutter clients.\n- [ ] Research third-party payment APIs (Stripe, PayPal, etc.).\n- [ ] Design integration points for later implementation.\n\n## Acceptance Criteria\n- Payments can be created and tracked in the system.\n- UI allows entry and viewing of payments.\n\n## Resources\n- [Stripe API Docs](https://stripe.com/docs/api)\n- [PayPal API Docs](https://developer.paypal.com/api/rest/)"
+  },
+  {
+    "title": "Week 8: Accounting Module",
+    "labels": ["roadmap", "week-8", "accounting"],
+    "body": "## Objectives\n- Implement basic accounting features.\n\n## Tasks\n- [ ] Add endpoints for accounts and transactions in Go API.\n- [ ] Build accounting UI in Flutter (income, expenses, transaction history).\n- [ ] Link payments and sales to accounting logic.\n\n## Acceptance Criteria\n- Sellers and suppliers can view basic accounting data.\n- Transactions are accurately recorded.\n\n## Resources\n- [Accounting for Developers](https://www.freecodecamp.org/news/bookkeeping-for-developers/)\n- [Flutter Charts](https://pub.dev/packages/charts_flutter)"
+  },
+  {
+    "title": "Week 9: Payment Integration & Advanced Features",
+    "labels": ["roadmap", "week-9", "integration"],
+    "body": "## Objectives\n- Integrate with third-party payment APIs and add supply chain comparison features.\n\n## Tasks\n- [ ] Integrate Stripe/PayPal or other payment provider with Go API.\n- [ ] Build/test payment flow end-to-end.\n- [ ] Add product/supplier comparison features in Flutter.\n\n## Acceptance Criteria\n- Payments can be processed through external APIs.\n- Sellers can compare products across supply chain.\n\n## Resources\n- [Integrating Stripe with Go](https://github.com/stripe/stripe-go)\n- [Flutter HTTP Package](https://pub.dev/packages/http)"
+  },
+  {
+    "title": "Week 10: Testing, Polish, and MVP Release Prep",
+    "labels": ["roadmap", "week-10", "mvp"],
+    "body": "## Objectives\n- Test, refine, and prepare for MVP launch.\n\n## Tasks\n- [ ] Manual and automated end-to-end tests.\n- [ ] Bug fixing and UI/UX refinement.\n- [ ] Prepare deployment scripts for Go API and Flutter clients.\n- [ ] Write user and developer documentation.\n- [ ] Collect feedback.\n\n## Acceptance Criteria\n- All critical bugs resolved.\n- Clear documentation in repo.\n- MVP is ready for initial users.\n\n## Resources\n- [Go Testing](https://golang.org/pkg/testing/)\n- [Flutter Testing](https://flutter.dev/docs/testing)"
+  }
+]
